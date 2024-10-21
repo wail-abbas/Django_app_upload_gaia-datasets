@@ -1,0 +1,49 @@
+{% include "base.html" %}
+{% include "navbar.html" %}
+
+<br></br>
+<div class="container">
+
+ <br></br>
+   <table id="data-table" class="display" style="width:100%">
+    <thead >  
+        <tr>  
+            <th>File Name</th>
+            <th>Solution ID</th>  
+            <th>healpix</th>  
+            <th>ls</th>  
+            <th>bc</th>  
+            <th>dc</th>
+            <th>lambda</th>
+	        <th>flux</th>
+            <th>flux_uncertainty</th>  
+    
+        </tr>  
+        </thead>  
+        <tbody>  
+    {% for data in row_data %}  
+        <tr>  
+            <td>{{ data.file }}</td>  
+            <td>{{ data.solution_id }}</td>  
+            <td>{{ data.healpix_value }}</td>  
+            <td>{{ data.lc_value }}</td>
+            <td>{{ data.bc_value }}</td>  
+            <td>{{ data.dc_value }}</td>
+            <td>{{ data.lambda_value }}</td>
+            <td>{{ data.flux_value }}</td>
+	        <td>{{ data.flux_uncertainty_value }}</td>
+        </tr> 
+    {% empty %}
+    <tr>
+      <td colspan="7" class="text-center bg-warning">No Data</td>
+    </tr>
+  {% endfor %}
+
+   </tbody>
+   </table>
+</div>
+<script>
+  $(document).ready(function(){
+    $('#data-table').DataTable();
+  })
+  </script>

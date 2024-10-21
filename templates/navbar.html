@@ -5,19 +5,19 @@
           <!-- Navbar links aligned to the left -->
           <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Upload VOTable</a>
+                  <a class="nav-link" href="{% url 'upload' %}">Upload VOTable</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Data</a>
+                  <a class="nav-link" href="{% url 'show_data'%}">Data</a>
               </li>
           </ul>
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src= "{% static 'media/avatar.png' %}" width="50" height="50">
+              <img src= "{% static 'images/avatar.png' %}" width="50" height="50">
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Profile</a></li>

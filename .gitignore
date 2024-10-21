@@ -1,5 +1,5 @@
 # Data
-media/
+media/*
 
 db.sqlite3
 
