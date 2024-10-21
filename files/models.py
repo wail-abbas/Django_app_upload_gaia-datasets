@@ -9,7 +9,7 @@ class VotableFiles(models.Model):
 
 
 class Solutions(models.Model):
-    solution_id = models.IntegerField(primary_key=True)
+    solution_id = models.DecimalField(primary_key=True, decimal_places=2, max_digits=100)
     def __str__(self):
        return str(self.solution_id)
 

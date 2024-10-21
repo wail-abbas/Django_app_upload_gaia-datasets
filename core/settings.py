@@ -81,7 +81,14 @@ WSGI_APPLICATION = "core.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3"}
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'testdb2',
+        'USER': 'test1',
+        'PASSWORD': 'test1',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
 
 
@@ -109,6 +116,10 @@ USE_I18N = True
 
 USE_TZ = True
 
+CELERY_BROKER_URL = 'amqp://localhost' 
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_BACKEND = 'rpc://'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
