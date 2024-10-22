@@ -1,0 +1,71 @@
+version: "3.7"
+services:
+  web_app:
+    build: .
+    environment:
+      - DJANGO_SETTINGS_MODULE=core.settings.prod
+    volumes:
+      - static:/static
+    expose:
+      - "8000"
+    depends_on:
+      - db
+      - rabbitmq
+    env_file:
+      - .env
+    networks:
+      - webnet 
+
+  db:
+    image: postgres:13
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - webnet
+ 
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    env_file:
+      - .env
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+    networks:
+      - webnet
+
+  celery:
+    build: .
+    command: celery -A core worker --loglevel=info
+    depends_on:
+      - rabbitmq
+    env_file:
+      - .env
+    networks:
+      - webnet 
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - static:/static
+    ports:
+      - "80:80"
+    depends_on:
+      - web_app
+    networks:
+      - webnet
+
+volumes:
+  static:
+  postgres_data:
+
+networks:
+  webnet:
