@@ -37,6 +37,11 @@
     </ul>
   <li><b>Database:</b></li>
     <ul>
+      <li><b>HTML</b></li>
+      <li><b>Bootstrap</b></li>
+    </ul>
+  <li><b>Database:</b></li>
+    <ul>
       <li><b>PostgreSQL</b></li>
     </ul>
   <li><b>Deployment</b> </li>
