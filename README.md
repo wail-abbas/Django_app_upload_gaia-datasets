@@ -9,7 +9,7 @@
     <li><a href="#overview"> ➤ Overview</a></li>
     <li><a href="#data_sets"> ➤ Data Sets</a></li>
     <li><a href="#technologies-used"> ➤ Technologies Used</a></li>
-    <li><a href="#run_and_installation"> ➤ Run The Application</a></li>
+    <li><a href="#application_usage"> ➤ Application Usage</a></li>
   </ol>
 </details>
 
@@ -52,7 +52,7 @@
 </ul>
 
 <br>
-<h2 id="run_and_installation"> 🖥️ Run The Application</h2>
+<h2 id="application_usage"> 🖥️ Application Usage</h2>
 
 <ol>
   <li><b>Clone This repository<pre><code>git clone https://github.com/wail-abbas/Django_app_upload_gaia-datasets.git</code></pre></b></li>
