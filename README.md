@@ -1,5 +1,3 @@
-# gaia-datasets-application
-
 <h1 align="center"> Exploring Giga datasets using Django </h1>
 
 <h2 id="table-of-contents"> 📋 Table of Contents</h2>
